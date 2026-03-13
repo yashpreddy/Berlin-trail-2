@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berlin Machineries Pvt. Ltd. | CNC EDM & Precision Machines — Pune</title>
+<meta name="description" content="Berlin Machineries Private Limited — India's trusted manufacturer & trader of CNC Wire Cut EDM, Milling, Lathe, Surface Grinder & 50+ precision machines. Est. 2008, Pune. 3000+ installations. TrustSEAL Verified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:    #05080f;
+  --bg2:   #080d18;
+  --bg3:   #0d1525;
+  --bg4:   #111c30;
+  --card:  #0a1120;
+  --blue:  #0f6fff;
+  --cyan:  #00c8ff;
+  --steel: #3a7bd5;
+  --gold:  #f5c842;
+  --green: #22c55e;
+  --red:   #ef4444;
+  --silver:#b8c8e8;
+  --light: #dce8ff;
+  --muted: #6888aa;
+  --dim:   #3a5070;
+  --white: #ffffff;
+  --bdr:   rgba(0,200,255,.12);
+  --bdr2:  rgba(0,200,255,.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--light);overflow-x:hidden;line-height:1.6}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 20%,rgba(15,111,255,.08) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 80%,rgba(0,200,255,.06) 0%,transparent 60%);
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--steel);border-radius:3px}
+
+/* ── GRID LINES BG ── */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(0,200,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,200,255,.025) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cur{width:12px;height:12px;background:var(--cyan);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:transform .1s}
+#cur-ring{width:34px;height:34px;border:1.5px solid rgba(0,200,255,.6);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:all .3s ease;opacity:.7}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 3.5rem;
+  background:rgba(5,8,15,.9);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bdr);
+  transition:.3s;
+}
+.nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.logo-box{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  display:grid;place-items:center;
+  font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;
+  box-shadow:0 0 22px rgba(0,200,255,.4);
+}
+.logo-name{font-family:'Rajdhani',sans-serif;font-size:1.2rem;font-weight:700;line-height:1;color:var(--white)}
+.logo-name span{display:block;font-size:.6rem;font-weight:500;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-top:.1rem}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{color:var(--silver);text-decoration:none;font-size:.875rem;font-weight:500;transition:.2s;position:relative;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--cyan);transition:.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-verified{display:flex;align-items:center;gap:.4rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);padding:.2rem .7rem;border-radius:20px;font-size:.7rem;color:#4ade80;font-weight:600}
+.nav-verified .dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+.nav-quote{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-weight:700;font-size:.85rem;padding:.55rem 1.4rem;border-radius:6px;text-decoration:none;box-shadow:0 0 20px rgba(0,200,255,.3);transition:.2s}
+.nav-quote:hover{transform:translateY(-2px);box-shadow:0 0 35px rgba(0,200,255,.5)}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:8rem 3.5rem 5rem;overflow:hidden;z-index:1;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:rgba(0,200,255,.06);border:1px solid rgba(0,200,255,.22);
+  padding:.38rem 1.1rem;border-radius:40px;
+  font-size:.74rem;color:var(--cyan);font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:1.8rem;
+  animation:fadeUp .6s ease both;
+}
+.hero-badge .live{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
+
+.hero h1{
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(3.5rem,8.5vw,8rem);
+  font-weight:700;line-height:.9;
+  text-transform:uppercase;letter-spacing:-1px;
+  max-width:850px;
+  animation:fadeUp .7s .1s ease both;
+}
+.h1a{color:var(--white)}
+.h1b{
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  position:relative;display:inline-block;
+}
+.h1b::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:2px;opacity:.4}
+.h1c{color:var(--silver);opacity:.5}
+
+.hero-sub{
+  font-size:1.1rem;color:var(--silver);max-width:560px;
+  margin:1.8rem 0 2.8rem;line-height:1.7;
+  animation:fadeUp .7s .2s ease both;
+}
+.hero-sub strong{color:var(--white);font-weight:600}
+
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  color:#fff;padding:.9rem 2.2rem;border-radius:8px;
+  font-weight:700;font-size:.95rem;text-decoration:none;
+  box-shadow:0 0 30px rgba(0,200,255,.35);transition:.2s;
+  border:1px solid rgba(0,200,255,.2);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(0,200,255,.55)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid var(--bdr2);color:var(--cyan);
+  padding:.9rem 2.2rem;border-radius:8px;font-weight:600;
+  font-size:.95rem;text-decoration:none;transition:.2s;
+}
+.btn-outline:hover{background:rgba(0,200,255,.07);border-color:var(--cyan)}
+
+/* floating card */
+.hero-float{
+  position:absolute;right:4%;top:50%;transform:translateY(-50%);
+  background:var(--bg3);border:1px solid var(--bdr2);
+  border-radius:20px;padding:1.8rem 1.6rem;width:260px;
+  box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(0,200,255,.06) inset;
+  animation:float 4s ease-in-out infinite;z-index:2;
+}
+@keyframes float{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 14px))}}
+.hf-title{font-family:'Rajdhani',sans-serif;font-size:.7rem;font-weight:600;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.2rem;text-align:center}
+.hf-stat{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--bdr)}
+.hf-stat:last-child{border-bottom:none}
+.hf-stat .lbl{font-size:.8rem;color:var(--muted)}
+.hf-stat .val{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;color:var(--white)}
+.hf-stat .val.green{color:#4ade80}
+.hf-stat .val.blue{color:var(--cyan)}
+.hf-badge{
+  margin-top:1.2rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);
+  padding:.5rem;border-radius:8px;text-align:center;
+  font-size:.72rem;color:#4ade80;font-weight:600;
+}
+
+/* stats row */
+.hero-stats{
+  display:flex;gap:0;border:1px solid var(--bdr);
+  border-radius:14px;overflow:hidden;
+  background:rgba(255,255,255,.02);
+  max-width:680px;margin-top:3.5rem;
+  animation:fadeUp .7s .4s ease both;
+}
+.stat-cell{flex:1;padding:1.2rem;border-right:1px solid var(--bdr);text-align:center;min-width:100px}
+.stat-cell:last-child{border-right:none}
+.stat-n{font-family:'Rajdhani',sans-serif;font-size:2.2rem;font-weight:700;color:var(--cyan);line-height:1}
+.stat-l{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:.3rem}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── TICKER ── */
+.ticker-bar{overflow:hidden;background:rgba(0,200,255,.04);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:.65rem 0;position:relative;z-index:1}
+.ticker-inner{display:flex;gap:3rem;animation:tick 30s linear infinite;white-space:nowrap}
+.tick-item{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted);font-weight:500;flex-shrink:0}
+.tick-item .ico{color:var(--cyan)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+section{position:relative;z-index:1;padding:6rem 3.5rem}
+.sec-label{font-size:.7rem;color:var(--cyan);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.7rem}
+.sec-title{font-family:'Rajdhani',sans-serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:700;text-transform:uppercase;line-height:.95;color:var(--white);margin-bottom:1rem;letter-spacing:-0.5px}
+.sec-title .bl{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-sub{font-size:.95rem;color:var(--muted);max-width:520px;line-height:1.7}
+
+/* ── PRODUCTS ── */
+.products{background:var(--bg2)}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;margin-top:3.5rem}
+.prod-card{
+  background:var(--bg3);border:1px solid var(--bdr);
+  border-radius:18px;overflow:hidden;transition:.25s;position:relative;
+}
+.prod-card:hover{border-color:var(--bdr2);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.prod-top{
+  height:170px;background:linear-gradient(135deg,var(--bg4),var(--card));
+  display:flex;align-items:center;justify-content:center;
+  font-size:4.5rem;position:relative;overflow:hidden;
+}
+.prod-top::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,var(--bg3),transparent)}
+.prod-tag{position:absolute;top:12px;right:12px;background:rgba(0,200,255,.15);border:1px solid rgba(0,200,255,.3);padding:.18rem .6rem;border-radius:20px;font-size:.68rem;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.prod-body{padding:1.4rem}
+.prod-name{font-family:'Rajdhani',sans-serif;font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:.4rem;line-height:1.1}
+.prod-desc{font-size:.84rem;color:var(--muted);line-height:1.6;margin-bottom:.9rem}
+.prod-price{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:.9rem}
+.prod-price span{font-size:.82rem;font-weight:400;color:var(--muted)}
+.prod-specs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.spec-tag{background:rgba(0,200,255,.06);border:1px solid var(--bdr);border-radius:4px;padding:.18rem .55rem;font-size:.7rem;color:var(--silver)}
+.prod-btn{display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;color:var(--cyan);font-weight:600;text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+.prod-btn:hover{border-bottom-color:var(--cyan)}
+
+/* ── CATEGORIES ── */
+.categories{background:var(--bg)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:2.5rem}
+.cat-card{
+  background:var(--bg3);border:1px solid var(--bdr);
+  border-radius:12px;padding:1.2rem 1.3rem;
+  display:flex;align-items:center;gap:.9rem;
+  text-decoration:none;color:inherit;transition:.2s;
+}
+.cat-card:hover{border-color:var(--cyan);background:rgba(0,200,255,.04);transform:translateX(4px)}
+.cat-ico{font-size:1.6rem;min-width:2rem;text-align:center}
+.cat-name{font-weight:600;font-size:.88rem;color:var(--white);line-height:1.3}
+.cat-sub{font-size:.72rem;color:var(--muted);margin-top:.15rem}
+
+/* ── ABOUT ── */
+.about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.about-body p{font-size:.92rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.about-body strong{color:var(--white);font-weight:600}
+.about-quote{
+  background:var(--bg3);border-left:3px solid var(--cyan);
+  padding:1.2rem 1.5rem;border-radius:0 12px 12px 0;
+  margin:1.5rem 0;font-size:.9rem;color:var(--silver);
+  font-style:italic;line-height:1.7;
+}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.fact-card{background:var(--bg3);border:1px solid var(--bdr);border-radius:12px;padding:1rem 1.2rem}
+.fact-val{font-family:'Rajdhani',sans-serif;font-size:1.8rem;font-weight:700;color:var(--cyan)}
+.fact-key{font-size:.75rem;color:var(--muted);margin-top:.1rem;line-height:1.3}
+
+.about-right{}
+.info-strip{background:var(--bg3);border:1px solid var(--bdr);border-radius:16px;padding:1.5rem;margin-bottom:1.2rem}
+.is-title{font-family:'Rajdhani',sans-serif;font-size:.65rem;font-weight:700;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--bdr)}
+.is-row{display:flex;justify-content:space-between;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid var(--bdr);gap:1rem}
+.is-row:last-child{border-bottom:none}
+.is-key{font-size:.78rem;color:var(--muted);min-width:120px}
+.is-val{font-size:.82rem;color:var(--light);font-weight:500;text-align:right}
+.export-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.exp-chip{background:var(--bg4);border:1px solid var(--bdr);border-radius:6px;padding:.3rem .8rem;font-size:.78rem;color:var(--silver);display:flex;align-items:center;gap:.4rem}
+
+/* ── STATS SECTION ── */
+.numbers{background:var(--bg)}
+.num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.num-card{
+  background:var(--bg3);border:1px solid var(--bdr);
+  border-radius:16px;padding:2rem 1.5rem;text-align:center;transition:.2s;
+}
+.num-card:hover{border-color:var(--bdr2)}
+.num-icon{font-size:2rem;margin-bottom:.8rem}
+.num-big{font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;color:var(--cyan);line-height:1}
+.num-label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:.4rem}
+
+/* ── WHY US ── */
+.whyus{background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;margin-top:3rem}
+.why-card{background:var(--bg3);border:1px solid var(--bdr);border-radius:14px;padding:1.6rem;transition:.2s;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:.25s}
+.why-card:hover{border-color:var(--bdr2);background:rgba(0,200,255,.03)}
+.why-card:hover::before{opacity:1}
+.why-icon{font-size:1.8rem;margin-bottom:.8rem}
+.why-title{font-weight:700;color:var(--white);margin-bottom:.4rem;font-size:.95rem}
+.why-desc{font-size:.83rem;color:var(--muted);line-height:1.65}
+
+/* ── REVIEWS ── */
+.reviews{background:var(--bg)}
+.rev-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
+.rev-big{font-family:'Rajdhani',sans-serif;font-size:5rem;font-weight:700;color:var(--white);line-height:1}
+.rev-details{flex:1}
+.stars-row{display:flex;gap:.2rem;font-size:1.2rem;color:var(--gold);margin-bottom:.3rem}
+.rev-count{font-size:.85rem;color:var(--muted)}
+.rev-bars{flex:2;max-width:300px}
+.rbar-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.4rem;font-size:.8rem}
+.rbar-label{color:var(--muted);min-width:16px;text-align:right}
+.rbar-track{flex:1;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.rbar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),#f59e0b)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+.rev-card{background:var(--bg3);border:1px solid var(--bdr);border-radius:14px;padding:1.4rem}
+.rc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.8rem}
+.rc-name{font-weight:600;color:var(--white);font-size:.9rem}
+.rc-loc{font-size:.75rem;color:var(--muted);margin-top:.1rem}
+.rc-stars{color:var(--gold);font-size:.9rem}
+.rc-product{font-size:.72rem;color:var(--cyan);margin-bottom:.5rem}
+.rc-text{font-size:.82rem;color:var(--muted);line-height:1.6}
+.rc-date{font-size:.7rem;color:var(--dim);margin-top:.6rem}
+
+/* ── CONTACT ── */
+.contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;margin-top:3rem}
+.contact-left{display:flex;flex-direction:column;gap:1.2rem}
+.info-card{background:var(--bg3);border:1px solid var(--bdr);border-radius:14px;padding:1.2rem 1.4rem;display:flex;align-items:flex-start;gap:1rem}
+.info-card:hover{border-color:var(--bdr2)}
+.ic-icon{font-size:1.4rem;min-width:2rem;text-align:center;margin-top:.1rem}
+.ic-label{font-size:.7rem;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem}
+.ic-val{font-size:.88rem;color:var(--light);line-height:1.55}
+.ic-val a{color:var(--cyan);text-decoration:none}
+.map-embed{background:var(--bg3);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;height:200px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--muted);flex-direction:column;gap:.5rem}
+.contact-form{background:var(--bg3);border:1px solid var(--bdr);border-radius:18px;padding:2rem}
+.cf-title{font-family:'Rajdhani',sans-serif;font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:1.5rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.72rem;color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:.4rem}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;background:var(--bg2);border:1px solid var(--bdr);
+  border-radius:8px;padding:.75rem 1rem;color:var(--light);
+  font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:.2s;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,200,255,.08)}
+.form-group textarea{height:110px;resize:vertical}
+.form-group select option{background:var(--bg2);color:var(--light)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-submit{width:100%;background:linear-gradient(135deg,var(--blue),var(--cyan));border:none;color:#fff;padding:.9rem;border-radius:8px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif;box-shadow:0 0 20px rgba(0,200,255,.3)}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(0,200,255,.5)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:3.5rem 3.5rem 1.5rem}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.ft-about p{font-size:.84rem;color:var(--muted);line-height:1.7;max-width:280px;margin-top:.8rem}
+.ft-col h4{font-family:'Rajdhani',sans-serif;font-size:.8rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:2px;margin-bottom:1.1rem}
+.ft-col a{display:block;font-size:.83rem;color:var(--muted);text-decoration:none;margin-bottom:.55rem;transition:.2s}
+.ft-col a:hover{color:var(--white)}
+.ft-bottom{border-top:1px solid var(--bdr);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.75rem;color:var(--dim)}
+.gst-tag{background:rgba(0,200,255,.07);border:1px solid var(--bdr);padding:.25rem .7rem;border-radius:5px;font-size:.72rem;color:var(--cyan);font-weight:600}
+.trust-tag{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);padding:.25rem .7rem;border-radius:5px;font-size:.72rem;color:#4ade80;font-weight:600}
+
+/* ── WHATSAPP ── */
+.wa{position:fixed;bottom:2rem;right:2rem;z-index:400;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;text-decoration:none;box-shadow:0 5px 20px rgba(37,211,102,.45);transition:.2s;animation:waIn .5s 1s ease both}
+.wa:hover{transform:scale(1.12);box-shadow:0 8px 30px rgba(37,211,102,.65)}
+@keyframes waIn{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(28px);transition:.65s ease}
+.rv.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:.8rem 1.5rem}
+  .nav-links{display:none}
+  section,.hero{padding:4rem 1.5rem}
+  .ticker-bar{display:none}
+  .hero-float{display:none}
+  .hero-stats{max-width:100%}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .num-grid{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="logo-box">BM</div>
+    <div class="logo-name">Berlin Machineries<span>Pvt. Ltd. — Est. 2008, Pune</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#categories">Categories</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <div class="nav-verified"><span class="dot"></span> TrustSEAL Verified</div>
+  </div>
+  <a href="#contact" class="nav-quote">⚙️ Get Quote</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="live"></span>
+    Pune, Maharashtra · GST 27AAICB8441P1Z1 · IndiaMART Verified Exporter
+  </div>
+
+  <h1>
+    <div class="h1a">Precision</div>
+    <div class="h1b">CNC &amp; EDM</div>
+    <div class="h1c">Machines</div>
+  </h1>
+
+  <p class="hero-sub">
+    <strong>Berlin Machineries Private Limited</strong> — India's trusted manufacturer, trader &amp; exporter of CNC Wire Cut EDM, Milling, Lathe, Surface Grinder and 50+ precision industrial machines. Based in Pune since 2008.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary">⚙️ Get Instant Quote</a>
+    <a href="tel:08048976433" class="btn-outline">📞 08048976433</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-cell">
+      <div class="stat-n">2008</div>
+      <div class="stat-l">Established</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-n">15+</div>
+      <div class="stat-l">Years Experience</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-n">3000+</div>
+      <div class="stat-l">Installations</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-n">50+</div>
+      <div class="stat-l">Products</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-n">90%</div>
+      <div class="stat-l">Response Rate</div>
+    </div>
+  </div>
+
+  <!-- floating info card -->
+  <div class="hero-float">
+    <div class="hf-title">Company At A Glance</div>
+    <div class="hf-stat"><span class="lbl">CEO</span><span class="val">Sunil Dubey</span></div>
+    <div class="hf-stat"><span class="lbl">Turnover</span><span class="val blue">₹5–25 Crore</span></div>
+    <div class="hf-stat"><span class="lbl">Employees</span><span class="val">51–100</span></div>
+    <div class="hf-stat"><span class="lbl">Facility</span><span class="val">12,000 sq.ft.</span></div>
+    <div class="hf-stat"><span class="lbl">Delivery</span><span class="val green">1–10 Days</span></div>
+    <div class="hf-stat"><span class="lbl">Exports</span><span class="val">5 Countries</span></div>
+    <div class="hf-badge">✅ TrustSEAL Verified · GST Registered</div>
+  </div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <div class="tick-item"><span class="ico">⚡</span> CNC Wire Cut EDM</div>
+    <div class="tick-item"><span class="ico">🔩</span> Milling Machines</div>
+    <div class="tick-item"><span class="ico">⚙️</span> Surface Grinders</div>
+    <div class="tick-item"><span class="ico">🔧</span> Lathe Machines</div>
+    <div class="tick-item"><span class="ico">🎯</span> EDM Drilling</div>
+    <div class="tick-item"><span class="ico">✅</span> TrustSEAL Verified</div>
+    <div class="tick-item"><span class="ico">🌍</span> Exporting to 5 Countries</div>
+    <div class="tick-item"><span class="ico">🏭</span> 3000+ Installations</div>
+    <div class="tick-item"><span class="ico">📞</span> 08048976433</div>
+    <div class="tick-item"><span class="ico">📍</span> Chikhali, Pune</div>
+    <!-- duplicate -->
+    <div class="tick-item"><span class="ico">⚡</span> CNC Wire Cut EDM</div>
+    <div class="tick-item"><span class="ico">🔩</span> Milling Machines</div>
+    <div class="tick-item"><span class="ico">⚙️</span> Surface Grinders</div>
+    <div class="tick-item"><span class="ico">🔧</span> Lathe Machines</div>
+    <div class="tick-item"><span class="ico">🎯</span> EDM Drilling</div>
+    <div class="tick-item"><span class="ico">✅</span> TrustSEAL Verified</div>
+    <div class="tick-item"><span class="ico">🌍</span> Exporting to 5 Countries</div>
+    <div class="tick-item"><span class="ico">🏭</span> 3000+ Installations</div>
+    <div class="tick-item"><span class="ico">📞</span> 08048976433</div>
+    <div class="tick-item"><span class="ico">📍</span> Chikhali, Pune</div>
+  </div>
+</div>
+
+<!-- ─── PRODUCTS ─── -->
+<section class="products" id="products">
+  <div class="sec-label">Our Machines</div>
+  <h2 class="sec-title">Featured <span class="bl">Products</span></h2>
+  <p class="sec-sub">High-precision industrial machines trusted by 3000+ customers across India and 5 export countries.</p>
+
+  <div class="prod-grid">
+    <div class="prod-card rv">
+      <div class="prod-top">⚡<div class="prod-tag">EDM</div></div>
+      <div class="prod-body">
+        <div class="prod-name">CNC Wire Cut FZT Series</div>
+        <div class="prod-desc">C-type mast design, 4-axis CNC control, auto wire threading. Ideal for carbide, hardened steel die cutting. Taiwan origin — Fostex brand.</div>
+        <div class="prod-specs">
+          <span class="spec-tag">FZT-400BJ/SF</span><span class="spec-tag">4 Axis CNC</span><span class="spec-tag">800×600mm Table</span><span class="spec-tag">300mm Max Cut</span>
+        </div>
+        <div class="prod-price">₹ 12 Lakh <span>/ Piece</span></div>
+        <a href="#contact" class="prod-btn">Get Best Quote →</a>
+      </div>
+    </div>
+
+    <div class="prod-card rv">
+      <div class="prod-top">🔩<div class="prod-tag">MILLING</div></div>
+      <div class="prod-body">
+        <div class="prod-name">3HP DRO Milling Machine</div>
+        <div class="prod-desc">Digital readout milling machine with 3HP power for precise metal removal, surface finishing and step milling operations.</div>
+        <div class="prod-specs">
+          <span class="spec-tag">3HP Motor</span><span class="spec-tag">DRO Display</span><span class="spec-tag">Vertical Milling</span>
+        </div>
+        <div class="prod-price">₹ 3.65 Lakh <span>/ Unit</span></div>
+        <a href="#contact" class="prod-btn">Get Best Quote →</a>
+      </div>
+    </div>
+
+    <div class="prod-card rv">
+      <div class="prod-top">💎<div class="prod-tag">WIRECUT</div></div>
+      <div class="prod-body">
+        <div class="prod-name">CNC Wirecut — Carbide &amp; Steel Die</div>
+        <div class="prod-desc">Specialist CNC wirecut EDM optimised for carbide and hardened steel die cutting with micron-level accuracy.</div>
+        <div class="prod-specs">
+          <span class="spec-tag">Carbide Cut</span><span class="spec-tag">Steel Die</span><span class="spec-tag">Micron Accuracy</span>
+        </div>
+        <div class="prod-price">₹ 7.50 Lakh <span>/ Piece</span></div>
+        <a href="#contact" class="prod-btn">Get Best Quote →</a>
+      </div>
+    </div>
+
+    <div class="prod-card rv">
+      <div class="prod-top">⚙️<div class="prod-tag">GRINDER</div></div>
+      <div class="prod-body">
+        <div class="prod-name">Hydraulic Surface Grinder</div>
+        <div class="prod-desc">Heavy-duty hydraulic surface grinder for flat and precision grinding. High-volume industrial use with smooth surface finish.</div>
+        <div class="prod-specs">
+          <span class="spec-tag">Hydraulic Drive</span><span class="spec-tag">Heavy Duty</span><span class="spec-tag">Precision Finish</span>
+        </div>
+        <div class="prod-price">₹ 23.78 Lakh <span>/ Unit</span></div>
+        <a href="#contact" class="prod-btn">Get Best Quote →</a>
+      </div>
+    </div>
+
+    <div class="prod-card rv">
+      <div class="prod-top">🔧<div class="prod-tag">LATHE</div></div>
+      <div class="prod-body">
+        <div class="prod-name">Heavy Duty Geared Precision Lathe</div>
+        <div class="prod-desc">All-geared precision lathe for turning, boring, threading and facing. Built for heavy workloads and long-term reliability.</div>
+        <div class="prod-specs">
+          <span class="spec-tag">All Geared</span><span class="spec-tag">Heavy Duty</span><span class="spec-tag">High Precision</span>
+        </div>
+        <div class="prod-price">₹ 7.75 Lakh <span>/ Piece</span></div>
+        <a href="#contact" class="prod-btn">Get Best Quote →</a>
+      </div>
+    </div>
+
+    <div class="prod-card rv">
+      <div class="prod-top">🏗️<div class="prod-tag">GRINDER</div></div>
+      <div class="prod-body">
+        <div class="prod-name">Hydraulic Column Moving Surface Grinder</div>
+        <div class="prod-desc">Column-moving design for large workpieces. Hydraulic table traverse with precise cross-feed control for oversize components.</div>
+        <div class="prod-specs">
+          <span class="spec-tag">Column Moving</span><span class="spec-tag">Large Workpiece</span><span class="spec-tag">Hydraulic</span>
+        </div>
+        <div class="prod-price">₹ 17.30 Lakh <span>/ Piece</span></div>
+        <a href="#contact" class="prod-btn">Get Best Quote →</a>
+      </div>
+    </div>
+
+    <div class="prod-card rv">
+      <div class="prod-top">🎯<div class="prod-tag">EDM DRILL</div></div>
+      <div class="prod-body">
+        <div class="prod-name">500×300mm EDM Drilling Machine</div>
+        <div class="prod-desc">Fast-hole EDM drilling for deep hole applications in hardened materials, dies and moulds. Large 500×300mm work area.</div>
+        <div class="prod-specs">
+          <span class="spec-tag">500×300mm</span><span class="spec-tag">Deep Hole</span><span class="spec-tag">EDM Drill</span>
+        </div>
+        <div class="prod-price">₹ 5 Lakh <span>/ Unit</span></div>
+        <a href="#contact" class="prod-btn">Get Best Quote →</a>
+      </div>
+    </div>
+
+    <div class="prod-card rv">
+      <div class="prod-top">⚡<div class="prod-tag">CNC EDM</div></div>
+      <div class="prod-body">
+        <div class="prod-name">CNC Wire Cut EDM Machine</div>
+        <div class="prod-desc">Full CNC controlled wire cut EDM with auto-threading capability and submerged cutting for superior accuracy on complex profiles.</div>
+        <div class="prod-specs">
+          <span class="spec-tag">Auto Thread</span><span class="spec-tag">Submerged Cut</span><span class="spec-tag">CNC Control</span>
+        </div>
+        <div class="prod-price">₹ 6.36 Lakh <span>/ Unit</span></div>
+        <a href="#contact" class="prod-btn">Get Best Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NUMBERS ─── -->
+<section class="numbers rv">
+  <div style="text-align:center">
+    <div class="sec-label" style="text-align:center">Proven Track Record</div>
+    <h2 class="sec-title" style="text-align:center">Numbers That <span class="bl">Speak</span></h2>
+  </div>
+  <div class="num-grid">
+    <div class="num-card rv"><div class="num-icon">🏭</div><div class="num-big">3000+</div><div class="num-label">Conventional Machine Installations</div></div>
+    <div class="num-card rv"><div class="num-icon">⚡</div><div class="num-big">1500+</div><div class="num-label">EDM Machine Installations</div></div>
+    <div class="num-card rv"><div class="num-icon">🌍</div><div class="num-big">5</div><div class="num-label">Export Countries</div></div>
+    <div class="num-card rv"><div class="num-icon">⭐</div><div class="num-big">3.9</div><div class="num-label">Star Rating · 132 Reviews</div></div>
+  </div>
+</section>
+
+<!-- ─── CATEGORIES ─── -->
+<section class="categories" id="categories">
+  <div class="sec-label">Full Range</div>
+  <h2 class="sec-title">All <span class="bl">Product Categories</span></h2>
+  <p class="sec-sub">50+ industrial machines across 17 categories — from CNC EDM to conventional machines and accessories.</p>
+
+  <div class="cat-grid">
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">⚡</span><div><div class="cat-name">CNC Wire Cut EDM Machines</div><div class="cat-sub">Full series available</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">💎</span><div><div class="cat-name">Premium CNC Wirecut EDM</div><div class="cat-sub">High precision series</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🔩</span><div><div class="cat-name">Milling Machines (DRO)</div><div class="cat-sub">3HP &amp; 5HP models</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🔧</span><div><div class="cat-name">Lathe Machines</div><div class="cat-sub">All-geared precision</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">⚙️</span><div><div class="cat-name">Surface Grinder Machines</div><div class="cat-sub">Hydraulic series</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🎯</span><div><div class="cat-name">EDM Drilling Machines</div><div class="cat-sub">Fast hole EDM</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🌀</span><div><div class="cat-name">Spark Erosion / Sinker EDM</div><div class="cat-sub">Die sinking</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🏗️</span><div><div class="cat-name">Radial Drilling Machines</div><div class="cat-sub">Industrial grade</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🔬</span><div><div class="cat-name">Jig Fixtures</div><div class="cat-sub">Custom &amp; standard</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🖊️</span><div><div class="cat-name">CNC Engraving Machines</div><div class="cat-sub">Precision marking</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🪢</span><div><div class="cat-name">Wire Drawing Dies</div><div class="cat-sub">PCD &amp; carbide</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🔄</span><div><div class="cat-name">Rotary Tables H/V</div><div class="cat-sub">Horizontal &amp; vertical</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🏋️</span><div><div class="cat-name">Surface Grinding Machines</div><div class="cat-sub">Column moving series</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🔌</span><div><div class="cat-name">EDM Wire Cutting Machines</div><div class="cat-sub">Semi &amp; auto</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">🛠️</span><div><div class="cat-name">Machine Accessories</div><div class="cat-sub">Vise, clamping kits</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">📐</span><div><div class="cat-name">Measuring Instruments</div><div class="cat-sub">Precision measurement</div></div></a>
+    <a href="#contact" class="cat-card rv"><span class="cat-ico">✨</span><div><div class="cat-name">New Arrivals</div><div class="cat-sub">Latest additions</div></div></a>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-body">
+      <div class="sec-label">About Us</div>
+      <h2 class="sec-title">Precision &amp; Trust<br><span class="bl">Since 2008</span></h2>
+
+      <p>Established in <strong>2008</strong>, <strong>Berlin Machineries Private Limited</strong> is a leading Trader–Retailer and Manufacturer of CNC Wire Cut EDM machines and 50+ precision industrial machines. Headquartered in Pune, Maharashtra, we serve industries across India and export to five countries.</p>
+
+      <p>Under the dynamic leadership of our CEO, <strong>Mr. Sunil Dubey</strong>, we have built a reputation for quality products, transparent business practices and excellent after-sales service. With over <strong>15 years of unwavering commitment</strong>, we have achieved more than <strong>3000 conventional machine installations</strong> and over <strong>1500 EDM machine installations</strong> nationwide.</p>
+
+      <div class="about-quote">
+        "Our aim is to prioritize customer satisfaction by consistently delivering quality products. We aspire to lead the market by embracing best business practices and fostering strong relationships with our associates, clients, stakeholders and workforce."
+      </div>
+
+      <p>Our 12,000 sq.ft. permanent facility at Bhairavnath Industrial Estate, Chikhali, Pune is equipped with ultra-modern machines, testing equipment and a well-trained team. We provide <strong>onsite installation, operational training and after-sales support</strong> for every machine we supply.</p>
+
+      <div class="fact-grid rv">
+        <div class="fact-card"><div class="fact-val">₹5–25Cr</div><div class="fact-key">Annual Turnover</div></div>
+        <div class="fact-card"><div class="fact-val">12,000</div><div class="fact-key">Sq.Ft. Facility</div></div>
+        <div class="fact-card"><div class="fact-val">51–100</div><div class="fact-key">Team Members</div></div>
+        <div class="fact-card"><div class="fact-val">90%</div><div class="fact-key">Response Rate</div></div>
+      </div>
+    </div>
+
+    <div class="about-right rv">
+      <div class="info-strip">
+        <div class="is-title">Company Factsheet</div>
+        <div class="is-row"><span class="is-key">Company Name</span><span class="is-val">Berlin Machineries Pvt. Ltd.</span></div>
+        <div class="is-row"><span class="is-key">CEO</span><span class="is-val">Mr. Sunil Dubey</span></div>
+        <div class="is-row"><span class="is-key">Nature of Business</span><span class="is-val">Trader · Retailer · Manufacturer</span></div>
+        <div class="is-row"><span class="is-key">Established</span><span class="is-val">2008</span></div>
+        <div class="is-row"><span class="is-key">Legal Status</span><span class="is-val">Limited Company</span></div>
+        <div class="is-row"><span class="is-key">CIN No.</span><span class="is-val">U52609PN2020PTC188896</span></div>
+        <div class="is-row"><span class="is-key">GST No.</span><span class="is-val">27AAICB8441P1Z1</span></div>
+        <div class="is-row"><span class="is-key">IEC Code</span><span class="is-val">AAICB8441P</span></div>
+        <div class="is-row"><span class="is-key">Banker</span><span class="is-val">SVC Cooperative Bank Ltd.</span></div>
+        <div class="is-row"><span class="is-key">Delivery Time</span><span class="is-val">1–10 Days</span></div>
+        <div class="is-row"><span class="is-key">Payment Modes</span><span class="is-val">Cash · Cheque · Online · NEFT · Wire Transfer</span></div>
+        <div class="is-row"><span class="is-key">Shipment</span><span class="is-val">By Road · By Cargo · By Sea</span></div>
+      </div>
+
+      <div class="info-strip">
+        <div class="is-title">🌍 Export Countries (Up to 20%)</div>
+        <div class="export-chips">
+          <div class="exp-chip">🇳🇵 Nepal</div>
+          <div class="exp-chip">🇧🇩 Bangladesh</div>
+          <div class="exp-chip">🇦🇫 Afghanistan</div>
+          <div class="exp-chip">🇲🇺 Mauritius</div>
+          <div class="exp-chip">🇵🇭 Philippines</div>
+        </div>
+      </div>
+
+      <div class="info-strip">
+        <div class="is-title">🏆 Competitive Advantages</div>
+        <div class="is-row"><span class="is-key">R&amp;D</span><span class="is-val">Experienced R&amp;D Department</span></div>
+        <div class="is-row"><span class="is-key">Financial</span><span class="is-val">Good Financial Position &amp; TQM</span></div>
+        <div class="is-row"><span class="is-key">Product Line</span><span class="is-val">Large Product Line (50+ machines)</span></div>
+        <div class="is-row"><span class="is-key">Capacity</span><span class="is-val">Large Production Capacity</span></div>
+        <div class="is-row"><span class="is-key">Solutions</span><span class="is-val">Customized Solutions Available</span></div>
+        <div class="is-row"><span class="is-key">Support</span><span class="is-val">Onsite After-Sales Service</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section class="whyus">
+  <div class="sec-label">Why Berlin Machineries</div>
+  <h2 class="sec-title">Our <span class="bl">Strengths</span></h2>
+
+  <div class="why-grid">
+    <div class="why-card rv">
+      <div class="why-icon">🏭</div>
+      <div class="why-title">Manufacturer + Trader + Exporter</div>
+      <div class="why-desc">We manufacture, trade and export — giving you access to a wider range at competitive prices with direct accountability.</div>
+    </div>
+    <div class="why-card rv">
+      <div class="why-icon">🛠️</div>
+      <div class="why-title">Onsite Installation &amp; Training</div>
+      <div class="why-desc">Our trained engineers visit your factory for machine installation, commissioning and operator training — ensuring zero-downtime launch.</div>
+    </div>
+    <div class="why-card rv">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Fast 1–10 Day Delivery</div>
+      <div class="why-desc">Most machines shipped within 1–10 working days. Road, cargo and sea shipment modes available for any location in India or abroad.</div>
+    </div>
+    <div class="why-card rv">
+      <div class="why-icon">🌍</div>
+      <div class="why-title">Internationally Trusted</div>
+      <div class="why-desc">Exporting to Nepal, Bangladesh, Afghanistan, Mauritius and Philippines — proven quality accepted across international markets.</div>
+    </div>
+    <div class="why-card rv">
+      <div class="why-icon">💼</div>
+      <div class="why-title">Transparent &amp; Verified</div>
+      <div class="why-desc">IndiaMART TrustSEAL verified. GST registered since 2020. Crystal-clear pricing with no hidden costs in any transaction.</div>
+    </div>
+    <div class="why-card rv">
+      <div class="why-icon">📞</div>
+      <div class="why-title">90% Response Rate</div>
+      <div class="why-desc">89–90% verified response rate ensures you get quotes and technical answers faster than most competitors.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section class="reviews" id="reviews">
+  <div class="sec-label">Customer Reviews</div>
+  <h2 class="sec-title">What Customers <span class="bl">Say</span></h2>
+
+  <div class="rev-bar rv">
+    <div>
+      <div class="rev-big">3.9</div>
+      <div class="stars-row">★★★★☆</div>
+      <div class="rev-count">Reviewed by 132 customers</div>
+    </div>
+    <div class="rev-details">
+      <div style="font-size:.8rem;color:var(--muted);margin-bottom:.6rem">User Satisfaction Scores</div>
+      <div style="display:flex;gap:2rem;flex-wrap:wrap">
+        <div><div style="font-size:.75rem;color:var(--muted)">Response</div><div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--cyan)">77%</div></div>
+        <div><div style="font-size:.75rem;color:var(--muted)">Quality</div><div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--cyan)">65%</div></div>
+        <div><div style="font-size:.75rem;color:var(--muted)">Delivery</div><div style="font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--cyan)">66%</div></div>
+      </div>
+    </div>
+    <div class="rev-bars">
+      <div class="rbar-row"><span class="rbar-label">5★</span><div class="rbar-track"><div class="rbar-fill" style="width:49%"></div></div><span style="font-size:.75rem;color:var(--muted)">49%</span></div>
+      <div class="rbar-row"><span class="rbar-label">4★</span><div class="rbar-track"><div class="rbar-fill" style="width:19%"></div></div><span style="font-size:.75rem;color:var(--muted)">19%</span></div>
+      <div class="rbar-row"><span class="rbar-label">3★</span><div class="rbar-track"><div class="rbar-fill" style="width:15%"></div></div><span style="font-size:.75rem;color:var(--muted)">15%</span></div>
+      <div class="rbar-row"><span class="rbar-label">2★</span><div class="rbar-track"><div class="rbar-fill" style="width:3%"></div></div><span style="font-size:.75rem;color:var(--muted)">3%</span></div>
+      <div class="rbar-row"><span class="rbar-label">1★</span><div class="rbar-track"><div class="rbar-fill" style="width:14%"></div></div><span style="font-size:.75rem;color:var(--muted)">14%</span></div>
+    </div>
+  </div>
+
+  <div class="rev-grid">
+    <div class="rev-card rv">
+      <div class="rc-top">
+        <div><div class="rc-name">Hakimuddin Lokhandwala</div><div class="rc-loc">Ahmedabad, Gujarat</div></div>
+        <div class="rc-stars">★★★★★</div>
+      </div>
+      <div class="rc-product">Product: Electrical Discharge Machine</div>
+      <div class="rc-text">Good response and quality product. The machine was delivered as promised and the team was helpful with installation queries.</div>
+      <div class="rc-date">February 2026</div>
+    </div>
+    <div class="rev-card rv">
+      <div class="rc-top">
+        <div><div class="rc-name">Satish Dhumal</div><div class="rc-loc">Ahmednagar, Maharashtra</div></div>
+        <div class="rc-stars">★★★★☆</div>
+      </div>
+      <div class="rc-product">Product: Heavy Duty Geared Precision Lathe</div>
+      <div class="rc-text">Happy with the purchase. The lathe machine is performing well. Build quality is solid and the price was competitive compared to other suppliers.</div>
+      <div class="rc-date">October 2025</div>
+    </div>
+    <div class="rev-card rv">
+      <div class="rc-top">
+        <div><div class="rc-name">Bharat Kedia</div><div class="rc-loc">Hyderabad, Telangana</div></div>
+        <div class="rc-stars">★★★★★</div>
+      </div>
+      <div class="rc-product">Product: CNC Wire Cut EDM Machine</div>
+      <div class="rc-text">Excellent CNC wirecut machine. Very accurate cutting on hardened steel and carbide. Berlin Machineries provided good after-sales support as well.</div>
+      <div class="rc-date">August 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="sec-label">Get In Touch</div>
+  <h2 class="sec-title">Request a <span class="bl">Quote</span></h2>
+  <p class="sec-sub">Tell us your machine requirement and our team will respond with the best price within hours.</p>
+
+  <div class="contact-grid">
+    <div class="contact-left">
+      <div class="info-card rv">
+        <div class="ic-icon">📍</div>
+        <div>
+          <div class="ic-label">Factory Address</div>
+          <div class="ic-val">Bhairavnath Industrial Estate, Gate No. 2/1, Plot No. 15, Near Choudhary Weighing Bridge, Dehu-Alandi Road, Chikhali, Pune – 412114, Maharashtra</div>
+        </div>
+      </div>
+      <div class="info-card rv">
+        <div class="ic-icon">📞</div>
+        <div>
+          <div class="ic-label">Phone</div>
+          <div class="ic-val"><a href="tel:08048976433">08048976433</a> &nbsp;·&nbsp; <a href="tel:+918045801291">+91 80458 01291</a><br><span style="font-size:.78rem;color:var(--muted)">Response Rate: 89–90%</span></div>
+        </div>
+      </div>
+      <div class="info-card rv">
+        <div class="ic-icon">💬</div>
+        <div>
+          <div class="ic-label">WhatsApp</div>
+          <div class="ic-val"><a href="https://wa.me/918048976433">+91 80489 76433</a><br><span style="font-size:.78rem;color:var(--muted)">Quick response for quotes &amp; enquiries</span></div>
+        </div>
+      </div>
+      <div class="info-card rv">
+        <div class="ic-icon">🏢</div>
+        <div>
+          <div class="ic-label">GST &amp; Verification</div>
+          <div class="ic-val">GST: 27AAICB8441P1Z1<br>CIN: U52609PN2020PTC188896<br>IEC: AAICB8441P · TrustSEAL Verified</div>
+        </div>
+      </div>
+      <div class="info-card rv">
+        <div class="ic-icon">⏰</div>
+        <div>
+          <div class="ic-label">Business Hours</div>
+          <div class="ic-val">Monday – Saturday: 9:00 AM – 6:00 PM<br>Delivery Time: 1 to 10 Days</div>
+        </div>
+      </div>
+      <div class="map-embed rv">
+        <div style="font-size:1.5rem">📍</div>
+        <div>Chikhali, Pune – 412114</div>
+        <a href="https://maps.google.com/?q=Bhairavnath+Industrial+Estate+Chikhali+Pune" target="_blank" style="color:var(--cyan);font-size:.8rem;text-decoration:none">Open in Google Maps →</a>
+      </div>
+    </div>
+
+    <div class="contact-form rv">
+      <div class="cf-title">⚙️ Send Enquiry</div>
+      <div class="form-row">
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-group">
+        <label>Machine / Product Required</label>
+        <select>
+          <option value="">Select a machine...</option>
+          <option>CNC Wire Cut EDM Machine</option>
+          <option>Premium CNC Wirecut EDM</option>
+          <option>DRO Milling Machine</option>
+          <option>Hydraulic Surface Grinder</option>
+          <option>Heavy Duty Lathe Machine</option>
+          <option>EDM Drilling Machine</option>
+          <option>Spark Erosion / Sinker EDM</option>
+          <option>Radial Drilling Machine</option>
+          <option>CNC Engraving Machine</option>
+          <option>Wire Drawing Dies</option>
+          <option>Jig Fixture</option>
+          <option>Machine Accessories</option>
+          <option>Other / Multiple</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Quantity</label><input type="text" placeholder="e.g. 1 Piece"></div>
+        <div class="form-group"><label>Budget (approx.)</label><input type="text" placeholder="e.g. ₹5–10 Lakh"></div>
+      </div>
+      <div class="form-group">
+        <label>Requirements &amp; Specifications</label>
+        <textarea placeholder="Describe your requirement — machine model, workpiece size, material, application, delivery location etc."></textarea>
+      </div>
+      <button class="btn-submit">⚙️ Send Enquiry — Get Best Price</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="ft-grid">
+    <div class="ft-about">
+      <a href="#" class="nav-logo" style="margin-bottom:.8rem;display:inline-flex">
+        <div class="logo-box">BM</div>
+        <div class="logo-name">Berlin Machineries<span>Pvt. Ltd.</span></div>
+      </a>
+      <p>Leading manufacturer, trader &amp; exporter of CNC Wire Cut EDM and 50+ precision industrial machines. Est. 2008. Pune, Maharashtra. 3000+ successful installations across India and 5 export countries.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Products</h4>
+      <a href="#products">CNC Wire Cut EDM</a>
+      <a href="#products">Milling Machines</a>
+      <a href="#products">Lathe Machines</a>
+      <a href="#products">Surface Grinders</a>
+      <a href="#products">EDM Drilling</a>
+    </div>
+    <div class="ft-col">
+      <h4>Company</h4>
+      <a href="#about">About Us</a>
+      <a href="#categories">All Categories</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.berlinmachines.com" target="_blank">Old Website</a>
+    </div>
+    <div class="ft-col">
+      <h4>Contact</h4>
+      <a href="tel:08048976433">📞 08048976433</a>
+      <a href="https://wa.me/918048976433" target="_blank">💬 WhatsApp Us</a>
+      <a href="#contact">✉️ Send Enquiry</a>
+      <a href="https://maps.google.com/?q=Bhairavnath+Industrial+Estate+Chikhali+Pune" target="_blank">📍 Google Map</a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2025 Berlin Machineries Private Limited. All Rights Reserved. Chikhali, Pune – 412114, Maharashtra, India.</span>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+      <span class="gst-tag">GST: 27AAICB8441P1Z1</span>
+      <span class="trust-tag">✅ TrustSEAL Verified</span>
+      <span class="gst-tag">IEC: AAICB8441P</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/918048976433" class="wa" target="_blank" title="WhatsApp Berlin Machineries">💬</a>
+
+<script>
+// Custom cursor
+const c=document.getElementById('cur'), r=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.transform=`translate(${mx-6}px,${my-6}px)`});
+(function anim(){rx+=(mx-rx-17)*.12;ry+=(my-ry-17)*.12;r.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(anim)})();
+
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.background=window.scrollY>60?'rgba(5,8,15,.97)':'rgba(5,8,15,.9)';
+});
+
+// Scroll reveal
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
